@@ -1,6 +1,6 @@
 {
   "name": "express-http-to-https",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": "https://github.com/SegFaultx64/express-http-to-https",
   "main": "index.js",
