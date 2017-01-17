@@ -2,6 +2,7 @@
   "name": "express-http-to-https",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/SegFaultx64/express-http-to-https",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
