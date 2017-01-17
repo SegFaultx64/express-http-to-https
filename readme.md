@@ -1,9 +1,9 @@
-# `express-redirect-to-https`
+# `express-http-to-https`
 
-express-redirect-to-https is a node.js package for providing an Express middleware that redirects the client to HTTPS if they attempt to connect over HTTP.
+express-http-to-https is a node.js package for providing an Express middleware that redirects the client to HTTPS if they attempt to connect over HTTP.
 
 ## Installation
-`$ npm install --save express-redirect-to-https`
+`$ npm install --save express-http-to-https`
 
 
 ## Usage
@@ -23,7 +23,7 @@ express-redirect-to-https is a node.js package for providing an Express middlewa
 var express = require('express');
 var app = express();
 
-var redirectToHTTPS = require('express-redirect-to-https')
+var redirectToHTTPS = require('express-http-to-https')
 
 // Don't redirect if the hostname is `localhost:8080` or the route is `/insecure`
 app.use(redirectToHTTPS(['localhost:8080'], ['/insecure']));

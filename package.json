@@ -1,5 +1,5 @@
 {
-  "name": "express-redirect-to-https",
+  "name": "express-http-to-https",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
