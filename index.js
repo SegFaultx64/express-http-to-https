@@ -1,21 +1,21 @@
-modules.exports = function redirectToHTTPS (ignoreHosts, ignoreRoutes) {
-  if (!ignoreHosts) {
-    ignoreHosts = [];
-  }
+function searchIgnore (value, ignores) {
+  return ignores.some((search) => {
+    return search.test(value)
+  })
+}
 
-  if (!ignoreRoutes) {
-    ignoreRoutes = [];
-  }
+function redirectToHTTPS (ignoreHosts = [], ignoreRoutes = []) {
+  return function middlewareRedirectToHTTPS (req, res, next) {
+    const isNotSecure = (!req.get('x-forwarded-port') && req.protocol !== 'https') ||
+      parseInt(req.get('x-forwarded-port'), 10) !== 443
 
-  return function (req, res, next) {
-    if (
-      'https' !== req.protocol &&
-      ignoreHosts.indexOf(req.get('host')) === -1 &&
-      ignoreRoutes.indexOf(req.path) === -1
-    )  {
-      return res.redirect('https://' + req.get('host') + req.url);
+    if (isNotSecure && !searchIgnore(req.get('host'), ignoreHosts) &&
+      !searchIgnore(req.path, ignoreRoutes)) {
+      return res.redirect('https://' + req.get('host') + req.url)
     }
 
-    next();
-  };
-};
+    next()
+  }
+}
+
+exports.redirectToHTTPS = redirectToHTTPS
