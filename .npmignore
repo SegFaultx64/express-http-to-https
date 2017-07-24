@@ -1,0 +1,10 @@
+/node_modules
+/coverage
+
+/.idea
+/.ideaw
+/.vscode
+/.settings
+
+/typings
+*.log

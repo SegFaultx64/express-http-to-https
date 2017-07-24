@@ -5,8 +5,23 @@
   "repository": "https://github.com/SegFaultx64/express-http-to-https",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/index.test.js"
   },
-  "author": "",
-  "license": "MIT"
+  "author": "Max Walker (max@maxwalker.me)",
+  "contributors": [
+    {
+      "name": "Aleksander Szmigiel",
+      "email": "kontakt@some-say.com",
+      "url": "https://some-say.com"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.0.36",
+    "standard": "^10.0.2",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
