@@ -52,3 +52,6 @@ MIT License
 
 ## Author
 Max Walker (max@maxwalker.me)
+
+## Contributors
+Aleksander Szmigiel
