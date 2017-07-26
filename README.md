@@ -23,7 +23,7 @@ express-http-to-https is a node.js package for providing an Express middleware t
 var express = require('express');
 var app = express();
 
-var redirectToHTTPS = require('express-http-to-https')
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
 // Don't redirect if the hostname is `localhost:port` or the route is `/insecure`
 app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/]));
