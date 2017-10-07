@@ -1,5 +1,5 @@
 function searchIgnore (value, ignores) {
-  return ignores.some((search) => {
+  return ignores.some(function (search) {
     return search.test(value)
   })
 }
