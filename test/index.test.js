@@ -10,6 +10,7 @@ const app = express()
 const app2 = express()
 const app3 = express()
 const app4 = express()
+const app5 = express()
 
 const httpsServer = https.createServer({
   key: readFileSync(`${__dirname}/fixtures/test_key.pem`),
@@ -105,4 +106,23 @@ request(httpsServer)
 
     console.log('Should not redirect from https to https')
     httpsServer.close()
+  })
+
+app5.use(redirectToHTTPS([], [], 301))
+app5.get('/user', (req, res) => {
+  res.status(200).json({ name: 'tobi' })
+})
+
+request(app5)
+  .get('/user')
+  .expect(301)
+  .expect((value) => {
+    return /https/.test(value.headers.location)
+  })
+  .end((err) => {
+    if (err) {
+      throw err
+    }
+
+    console.log('Should be able to set alternative code')
   })
