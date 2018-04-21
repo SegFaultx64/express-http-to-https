@@ -15,6 +15,7 @@ express-http-to-https is a node.js package for providing an Express middleware t
 
 * __ignoreHosts__: An array of strings of the hostnames on which to not enable the redirect. _note:_ you must include the port here, for example `[/localhost:8080/]`.
 * __ignoreRoutes__: An array of strings of the routes on which not to enable the redirect.
+* __redirectCode__: The HTTP status code to return when redirecting. Defaults to 302 "found" can be any status code
 
 
 ### Example
@@ -26,7 +27,7 @@ var app = express();
 var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS
 
 // Don't redirect if the hostname is `localhost:port` or the route is `/insecure`
-app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/]));
+app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/insecure/], 301));
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
