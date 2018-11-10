@@ -8,7 +8,7 @@ express-http-to-https is a node.js package for providing an Express middleware t
 
 ## Usage
 
-`app.use(redirectToHTTPS(ignoreHosts, ignoreRoutes);`
+`app.use(redirectToHTTPS(ignoreHosts, ignoreRoutes));`
 
 
 ### Configuration Options
